@@ -1,0 +1,39 @@
+<script>
+function getCurrDateStr(){
+	var today = new Date();
+	var dd = String(today.getDate());
+	var mm = String(today.getMonth() + 1);
+	if (dd.length == 1) dd = "0" + dd;
+	if (mm.length == 1) mm = "0" + mm;
+	var yyyy = today.getFullYear();
+	return yyyy +""+mm+""+dd;
+}
+
+function daysBetween ( date1, date2 ) {
+
+  //Get 1 day in milliseconds
+  var one_day=1000*60*60*24;
+  
+  //Convert string to date
+  var strToDate1  = new Date(date1.substr(0,4), date1.substr(4,2)-1, date1.substr(6,2));
+  var strToDate2  = new Date(date2.substr(0,4), date2.substr(4,2)-1, date2.substr(6,2));
+
+  // Convert both dates to milliseconds
+  var date1_ms = strToDate1.getTime();
+  var date2_ms = strToDate2.getTime();
+
+  // Calculate the difference in milliseconds
+  var difference_ms = date2_ms - date1_ms;
+    
+  // Convert back to days and return
+  return Math.round(difference_ms/one_day); 
+}
+
+
+alert(daysBetween("20190330", "20190411") < 60);
+//check valid date js
+
+//check from and to, both null or both not null
+//either ref no or date should be entered
+
+</script>
